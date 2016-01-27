@@ -1,6 +1,6 @@
 # WGApipeline
 
-Optional step for reformatting each HAL alignment to reorder alignments with a new root (species name given to --refGenome argument)
+Optional step for reformatting each HAL alignment to reorder tree with a different root (species name given to --refGenome argument)
 
 parallel "hal2maf --inMemory --maxBlockLen 1000000 --global --refGenome tcas {} {.}.maf" ::: *.hal
 
