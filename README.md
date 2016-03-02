@@ -1,4 +1,4 @@
-#### An attempt at avoiding sequencing artifacts when doing comparative genomics on draft genome assemblies
+####Alignment of continuous coding regions for multiple genomes
 
 ####Get exon-level coding annotations (BUSCO)
 
@@ -13,11 +13,12 @@ Requires Python 3 -- [how to keep separate Python3 installation](http://askubunt
 * -sp -- [AUGUSTUS species](http://augustus.gobics.de/binaries/README.TXT)  
 * -c -- number of cores
  
-In the BUSCO output directory, retrieve all of the exon annotations (other options include gene, transcript, intron, start_codon, stop_codon) 
+In the BUSCO output directory, retrieve all of the exon annotations (other options include gene, transcript, intron, start_codon, stop_codon). Since these orthologs are under single-copy control, it is prudent to remove any Duplicated entries in the full_table_genomename file to avoid inferences drawn from sequencing artifacts.
 
 `#!/bin/bash`  
+`grep -v "Duplicated" full_table_* > good_table`  
 `grep -r 'CDS' gffs/ | sed 's/gffs.*://g' | awk '$3 ~ /CDS/'  > cds`  
-`awk 'NR==FNR{a[NR]=$0;next}{for (i in a){split(a[i],x," ");if ($3==x[1]&&x[4]>=$4&&x[5]<=$5)print x[1],x[2],$1,x[4],x[5],x[6],x[7],x[8],x[9] >> "cds.gff"}}' OFS='\t' cds full_table_*`
+`awk 'NR==FNR{a[NR]=$0;next}{for (i in a){split(a[i],x," ");if ($3==x[1]&&x[4]>=$4&&x[5]<=$5)print x[1],x[2],$1,x[4],x[5],x[6],x[7],x[8],x[9] >> "cds.gff"}}' OFS='\t' cds good_table`
 
 #### Create orthology map with [Mercator](https://github.com/hyphaltip/cndtools/tree/master/apps/mercator) by Colin Dewey
 
@@ -25,7 +26,13 @@ Rename exon GFF annotation to be the same as genome file (i.e. genome.fasta & ge
 
 #### Genome alignment
 
-In the Mercator output directory, you will find a series of numbered folders 
+In the Mercator output directory, you will find a series of numbered folders containing the orthologous sequences. These represent a much smaller percentage of the original genome, but the burden of sequencing artifacts will be further reduced by removing everything except conserved coding regions and the regions between them, validated by cross-species comparison. 
+
+I prefer the [progressiveCactus](https://github.com/glennhickey/progressiveCactus) aligner for this task, built on the existing work of LastZ and Pecan. Even though it is version 0.0, it has already been used in [publications](https://scholar.google.com/scholar?hl=en&q=progressivecactus&btnG=&as_sdt=1%2C44&as_sdtp=) and has not thrown any errors with any of the programs in its suite. It will give you a [comprehensive list of mutations](https://github.com/glennhickey/hal/blob/master/README.md) at base pair resolution (inversions, duplications, transpositions, snps, deletions) and already has support for detecting constrained elements. 
+
+Make sure current working directory is set to top level of Mercator sequence output directory (i.e. directory containing all numbered sequence directories). This code steps into each directory and performs the alignment, one at a time. Here, I have the Newick tree file of my species at one directory level higher.
+
+` --out-dir=
 
 Optional step for reformatting each HAL alignment to reorder tree with a different root (species name given to --refGenome argument)
 
