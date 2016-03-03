@@ -52,7 +52,7 @@ Let's create a subdirectory for each species inside the directory containing all
 
 `find . -type d | sed '1d' | sed 's/\.\///g' | while read -r line; do parallel "halBranchMutations --refFile "$line"/{.}.rearrangements --parentFile "$line"/{.}.dups --snpFile "$line"/{.}.snp --delBreakFile "$line"/{.}.del {} "$line"" ::: *.HAL; done;`
 
-Now each species subdirectory is populated with files containing inversions, duplications, transpositions, snps, and deletions that are numbered by the matching HAL alignment.
+Now each species subdirectory is populated with files containing inversions, duplications, transpositions, snps, and deletions that are numbered by the matching HAL alignment. NOTE: duplications (.dups) are only given with respect to the root of the species tree. 
 
 The HAL mutation coordinates are given only in relation to the start and end of each Mercator segment. Therefore, in your Mercator directory, you will need to extract the coordinates of each numbered Mercator segment out of the `map` file by using the `genomes` file as reference 
 
@@ -64,7 +64,7 @@ So I can extract the coordinates for each species as follows:
 
 `cut -f1-5 map > tcas.coord; cut -f1,6-9 map > tmad.coord; cut -f1,10-13 map > tconf.coord; cut -f1,14-17 map > tfree.coord; cut -f1,18-21 map > agla.coord; cut -f1,22-25 map > dendro.coord`
 
-We can intersect the HAL mutation coordinates with Mercator's coordinates as follows (for greater ease you could first concatenate all genome-specific mutations):
+We can intersect the HAL mutation coordinates with Mercator's coordinates as follows (for greater ease you could first concatenate all genome-specific mutations, except for duplications for reason listed above):
 
 awk 'NR==FNR{a[NR]=$0;next}{for (i in a){split(a[i],x," ");if ($1==x[1]) print x[2],x[3]+$3,x[3]+$4,$5,x[5] > "tmad.rearrangements.bed"}}' tmad.coord tmad.mutations
 
