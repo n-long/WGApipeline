@@ -35,7 +35,7 @@ Rename exon GFF annotation to be the same as genome file (i.e. genome.fasta & ge
 
 #### Genome alignment
 
-In the Mercator output directory, you will find a series of numbered folders containing the orthologous sequences. These represent a much smaller percentage of the original genome, but the burden of sequencing artifacts will be further reduced by removing everything except conserved coding regions and the regions between them, validated by cross-species comparison. 
+In the Mercator output directory, you will find a series of numbered folders containing the orthologous sequences. These represent a much smaller percentage of the original genome, but the burden of sequencing artifacts will be further reduced by removing everything except conserved coding regions and the regions between them, validated by cross-genome ordering comparison [see pg. 37-39 of Colin Dewey's disseration for details](http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-104.pdf)
 
 I prefer the [progressiveCactus](https://github.com/glennhickey/progressiveCactus) aligner for this task, built on the existing work of LastZ and Pecan. Even though it is version 0.0, it has already been used in [publications](https://scholar.google.com/scholar?hl=en&q=progressivecactus&btnG=&as_sdt=1%2C44&as_sdtp=) and has not thrown any runtime errors even using whole genome sequence. The accompanying [HALtools](https://github.com/glennhickey/hal/blob/master/README.md) can detect multiple mutation types (inversions, duplications, deletions, etc.) and includes support for detecting constrained elements (PhyloP). The rest of this document assumes you have progressiveCactus and HALtools installed and in your path. 
 
