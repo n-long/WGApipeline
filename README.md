@@ -2,7 +2,7 @@
 
 ####Get exon-level coding annotations (BUSCO)
 
-[BUSCO](busco.ezlab.org/) is the [CEGMA](http://korflab.ucdavis.edu/datasets/cegma/) successor for curated sets of single-copy orthologs for specific clades/lineages.  
+[BUSCO](busco.ezlab.org/) is the [CEGMA](http://korflab.ucdavis.edu/datasets/cegma/) successor for curated sets of conserved single-copy orthologs for specific clades/lineages.  
 Requires Python 3 -- [how to keep separate Python3 installation](http://askubuntu.com/questions/244544/how-do-i-install-python-3-3/290283)  
 
 `py3  BUSCO_v1.1b1.py -g genomeassemby.fasta -m all -l yourlineage -sp closest_species_for_augustus -c 20 -o output_folder`  
