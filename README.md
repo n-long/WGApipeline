@@ -1,4 +1,4 @@
-###Alignment of continuous coding regions across multiple genomes
+###Alignment of continuous coding regions across multiple draft genomes
 
 ####Get exon-level coding annotations (BUSCO)
 
@@ -14,7 +14,7 @@ Requires Python 3 -- [how to keep separate Python3 installation](http://askubunt
 * -c -- number of cores  
 * -o -- output directory
  
-In the BUSCO output directory, retrieve all of the exon annotations with the following code. Since these orthologs are under single-copy control, it is prudent to remove any 'Duplicated' entries in the full_table_*  file to avoid inferences drawn from sequencing artifacts.
+In the BUSCO output directory, retrieve all of the exon annotations with the following code. Since these orthologs are under single-copy control, it is prudent to remove any 'Duplicated' entries in the full_table_*  file to avoid inferences drawn from sequencing artifacts (citation coming soon).
 
 `#!/bin/bash`  
 `cd output_folder`  
