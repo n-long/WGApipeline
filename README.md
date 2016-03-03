@@ -70,4 +70,5 @@ awk 'NR==FNR{a[NR]=$0;next}{for (i in a){split(a[i],x," ");if ($1==x[1]) print x
 
 The logic operator `($1==x[1])` requires column 1 of file2 ($1 for tmad.mutations) and column 1 of file1 (x[1] for tmad.coord) to match, followed by printing of the specified columns. x[] is used for columns of file1 while $ specifies columns of file2. 
 
-With the transformed coordinates, you can easily intersect these files with annotations from other sources using [`bedtools intersect`](http://bedtools.readthedocs.org/en/latest/content/tools/intersect.html)
+With the transformed coordinates, you can easily intersect these files with annotations from other sources using  
+[`bedtools intersect`](http://bedtools.readthedocs.org/en/latest/content/tools/intersect.html)
