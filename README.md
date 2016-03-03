@@ -64,7 +64,7 @@ So I can extract the coordinates for each species as follows:
 
 `cut -f1-5 map > tcas.coord; cut -f1,6-9 map > tmad.coord; cut -f1,10-13 map > tconf.coord; cut -f1,14-17 map > tfree.coord; cut -f1,18-21 map > agla.coord; cut -f1,22-25 map > dendro.coord`
 
-We can intersect the HAL mutation coordinates with Mercator's coordinates as follows (for greater ease you could first concatenate all genome-specific mutations, except for duplications for reason listed above):
+We can intersect the HAL mutation coordinates with Mercator coordinates as follows (for greater ease you could first concatenate all genome-specific mutations, except for duplications for reason listed above):
 
 awk 'NR==FNR{a[NR]=$0;next}{for (i in a){split(a[i],x," ");if ($1==x[1]) print x[2],x[3]+$3,x[3]+$4,$5,x[5] > "tmad.rearrangements.bed"}}' tmad.coord tmad.mutations
 
