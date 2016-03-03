@@ -16,13 +16,13 @@ Requires Python 3 -- [how to keep separate Python3 installation](http://askubunt
  
 In the BUSCO output directory, retrieve all of the exon annotations (other options include gene, transcript, intron, start_codon, stop_codon). Since these orthologs are under single-copy control, it is prudent to remove any Duplicated entries in the full_table_*  file to avoid inferences drawn from sequencing artifacts.
 
-`#!/bin/bash`
-`cd output_folder`
+`#!/bin/bash`  
+`cd output_folder`  
 `grep -v "Duplicated" full_table_* > good_table`  
 `grep -r 'CDS' gffs/ | sed 's/gffs.*://g' | awk '$3 ~ /CDS/'  > cds`  
 `awk 'NR==FNR{a[NR]=$0;next}{for (i in a){split(a[i],x," ");if ($3==x[1]&&x[4]>=$4&&x[5]<=$5)print x[1],x[2],$1,x[4],x[5],x[6],x[7],x[8],x[9] >> "cds.gff"}}' OFS='\t' cds good_table`
 
-#### Create orthology map with [Mercator](https://github.com/hyphaltip/cndtools/tree/master/apps/mercator) by Colin Dewey
+#### Create orthology map with [Mercator](https://github.com/hyphaltip/cndtools/tree/master/apps/mercator)
 
 Rename exon GFF annotation to be the same as genome file (i.e. genome.fasta & genome.gff) and follow steps in link above to receive a directory of contiguous sequences for alignment. This program is particularly useful since it assembles scaffolds into larger ones if ordering of exon anchors is continuous across all genomes. Even better if one genome is of reference quality.
 
