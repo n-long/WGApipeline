@@ -52,7 +52,7 @@ Let's create a subdirectory for each species inside the directory containing all
 
 `find . -type d | sed '1d' | sed 's/\.\///g' | while read -r line; do parallel "halBranchMutations --refFile "$line"/{.}.rearrangements --parentFile "$line"/{.}.dups --snpFile "$line"/{.}.snp --delBreakFile "$line"/{.}.del {} "$line"" ::: *.HAL; done;`
 
-Now each species subdirectory is populated with files containing inversions, duplications, transpositions, snps, and deletions.
+Now each species subdirectory is populated with files containing inversions, duplications, transpositions, snps, and deletions that are numbered by the matching HAL alignment.
 
 The HAL mutation coordinates are given only in relation to the start and end of each Mercator segment. Therefore, in your Mercator directory, you will need to extract the coordinates of each numbered Mercator segment out of the `map` file by using the `genomes` file as reference 
 
