@@ -2,7 +2,7 @@
 
 Prerequisites:  
 [GNU Parallel](http://www.gnu.org/software/parallel/)  
-[BUSCO](busco.ezlab.org/)  
+[BUSCO](busco.ezlab.org/)
 [Mercator](https://github.com/hyphaltip/cndtools/tree/master/apps/mercator)  
 [progressiveCactus](https://github.com/glennhickey/progressiveCactus)  
 [HALtools](https://github.com/glennhickey/hal/blob/master/README.md)
