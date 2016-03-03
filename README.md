@@ -14,9 +14,10 @@ Requires Python 3 -- [how to keep separate Python3 installation](http://askubunt
 * -c -- number of cores  
 * -o -- output directory
  
-In the BUSCO output directory, retrieve all of the exon annotations (other options include gene, transcript, intron, start_codon, stop_codon). Since these orthologs are under single-copy control, it is prudent to remove any Duplicated entries in the full_table_genomename file to avoid inferences drawn from sequencing artifacts.
+In the BUSCO output directory, retrieve all of the exon annotations (other options include gene, transcript, intron, start_codon, stop_codon). Since these orthologs are under single-copy control, it is prudent to remove any Duplicated entries in the full_table_*  file to avoid inferences drawn from sequencing artifacts.
 
-`#!/bin/bash`  
+`#!/bin/bash`
+`cd output_folder`
 `grep -v "Duplicated" full_table_* > good_table`  
 `grep -r 'CDS' gffs/ | sed 's/gffs.*://g' | awk '$3 ~ /CDS/'  > cds`  
 `awk 'NR==FNR{a[NR]=$0;next}{for (i in a){split(a[i],x," ");if ($3==x[1]&&x[4]>=$4&&x[5]<=$5)print x[1],x[2],$1,x[4],x[5],x[6],x[7],x[8],x[9] >> "cds.gff"}}' OFS='\t' cds good_table`
