@@ -33,7 +33,7 @@ In the BUSCO output directory, retrieve all of the exon annotations with the fol
 
 Rename exon GFF annotation to be the same as genome file (i.e. genome.fasta & genome.gff) and follow steps in link above. 
 
-We are aiming to reduce the uncertainty in de novo assemblies by limiting the comparison to stretches of sequence (orthologous runs) shared across genomes. In some instances, scaffolds/contigs will be assembled into larger ones if the anchors (coding exons) extend across the boundaries of scaffolds in the same order for all genomes compared. This inference is improved if you have a reference quality genome. [See pg. 37-39 of Colin Dewey's disseration for details](http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-104.pdf).
+We are aiming to reduce the uncertainty in de novo assemblies by limiting the comparison to stretches of sequence (orthologous runs) shared across genomes. In some instances, scaffolds/contigs will be assembled into larger ones if the anchors (coding exons) extend across the boundaries of scaffolds in the same order for all genomes compared. This inference is improved if you have a reference quality genome. [See pg. 35-39 of Colin Dewey's disseration for details](http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-104.pdf).
 
 #### Genome alignment
 
