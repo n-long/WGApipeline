@@ -14,7 +14,7 @@ Requires Python 3 -- [how to keep separate Python3 installation](http://askubunt
 * -c -- number of cores  
 * -o -- output directory
  
-In the BUSCO output directory, retrieve all of the exon annotations with the following (other options include gene, transcript, intron, start_codon, stop_codon). Since these orthologs are under single-copy control, it is prudent to remove any Duplicated entries in the full_table_*  file to avoid inferences drawn from sequencing artifacts.
+In the BUSCO output directory, retrieve all of the exon annotations with the following. Since these orthologs are under single-copy control, it is prudent to remove any Duplicated entries in the full_table_*  file to avoid inferences drawn from sequencing artifacts.
 
 `#!/bin/bash`  
 `cd output_folder`  
