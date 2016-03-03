@@ -9,7 +9,7 @@ Requires Python 3 -- [how to keep separate Python3 installation](http://askubunt
 * py3 -- symlink for Python3  
 * -g -- genome assembly FASTA  
 * -m -- perform all analysis steps  
-* -l -- BUSCO lineage  
+* -l -- BUSCO lineage directory  
 * -sp -- [AUGUSTUS species](http://augustus.gobics.de/binaries/README.TXT)  
 * -c -- number of cores  
 * -o -- output directory
