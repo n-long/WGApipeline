@@ -24,7 +24,7 @@ In the BUSCO output directory, retrieve all of the exon annotations with the fol
 
 #### Create orthology map with [Mercator](https://github.com/hyphaltip/cndtools/tree/master/apps/mercator)
 
-Rename exon GFF annotation to be the same as genome file (i.e. genome.fasta & genome.gff) and follow steps in link above to receive a directory of contiguous sequences for alignment. This program is particularly useful since it assembles scaffolds into larger ones if ordering of exon anchors is continuous across all genomes. Even better if one genome is of reference quality.
+Rename exon GFF annotation to be the same as genome file (i.e. genome.fasta & genome.gff) and follow steps in link above. This program is particularly useful since it assembles scaffolds into larger ones if ordering of exon anchors is continuous across all genomes. Even better if one genome is of reference quality.
 
 #### Genome alignment
 
