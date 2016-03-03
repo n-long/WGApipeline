@@ -1,5 +1,12 @@
 ###Alignment of continuous coding regions across multiple draft genomes
 
+Prerequisites:  
+[GNU Parallel](http://www.gnu.org/software/parallel/)  
+[BUSCO](busco.ezlab.org/)  
+[Mercator](https://github.com/hyphaltip/cndtools/tree/master/apps/mercator)  
+[progressiveCactus](https://github.com/glennhickey/progressiveCactus)  
+[HALtools](https://github.com/glennhickey/hal/blob/master/README.md)
+
 ####Get exon-level coding annotations (BUSCO)
 
 [BUSCO](busco.ezlab.org/) is the [CEGMA](http://korflab.ucdavis.edu/datasets/cegma/) successor for curated sets of conserved single-copy orthologs for specific clades/lineages.  
