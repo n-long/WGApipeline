@@ -1,4 +1,4 @@
-####Alignment of continuous coding regions for multiple genomes
+###Alignment of continuous coding regions across multiple genomes
 
 ####Get exon-level coding annotations (BUSCO)
 
